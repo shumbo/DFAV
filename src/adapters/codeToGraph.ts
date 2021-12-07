@@ -1,6 +1,6 @@
 import { Graph } from "../models/graph";
 import { parse, Node } from "acorn";
-import * as esgraph from "esgraph";
+import esgraph from "esgraph";
 import { FlowNode } from "../models/flow";
 
 /**
