@@ -1,0 +1,38 @@
+{
+  "name": "dfav",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^1.7.1",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "ace-builds": "^1.4.13",
+    "acorn": "^8.6.0",
+    "acorn-loose": "^8.2.1",
+    "acorn-walk": "^8.2.0",
+    "astring": "^1.8.1",
+    "esgraph": "^0.3.0",
+    "framer-motion": "^4",
+    "lodash": "^4.17.21",
+    "react": "^17.0.0",
+    "react-ace": "^9.5.0",
+    "react-dom": "^17.0.0",
+    "react-full-screen": "^1.1.0",
+    "vis-data": "^7.1.2",
+    "vis-network": "^9.0.0",
+    "vis-util": "^5.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@vitejs/plugin-react": "^1.0.0",
+    "babel-loader": "^8.2.3",
+    "typescript": "^4.3.2",
+    "vite": "^2.6.4"
+  }
+}
