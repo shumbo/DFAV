@@ -9,7 +9,7 @@ export type AlgorithmHelpers = {
   universal: string[];
   fixedPoint: (
     initial: AlgorithmSnapshot,
-    fn: (state: AlgorithmSnapshot) => AlgorithmSnapshot
+    fn: (node: Node<FlowNode>, state: AlgorithmSnapshot) => string[]
   ) => AlgorithmSnapshot[];
 };
 

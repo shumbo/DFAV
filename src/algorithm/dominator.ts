@@ -11,14 +11,11 @@ export const dominator: Algorithm = (graph, nodes, helpers) => {
 
   // set the entry node to only contain itself
   dominator[helpers.entry.data.id] = [helpers.entry.data.id];
-  const snapshots = helpers.fixedPoint(dominator, (state) => {
-    for (const node of nodes) {
-      const predsDoms = [...graph.predecessors(node.data)].map(
-        (x) => state[x.data.id]
-      );
-      state[node.data.id] = union([node.data.id], intersection(...predsDoms));
-    }
-    return state;
+  const snapshots = helpers.fixedPoint(dominator, (node, state) => {
+    const predsDoms = [...graph.predecessors(node.data)].map(
+      (x) => state[x.data.id]
+    );
+    return union([node.data.id], intersection(...predsDoms));
   });
 
   // convert it to presentable data structure

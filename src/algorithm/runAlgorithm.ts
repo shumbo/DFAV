@@ -29,7 +29,10 @@ export function runAlgorithm(
       let changed = true;
       let state = initial;
       while (changed) {
-        const snapshot = fn(cloneDeep(state));
+        const snapshot = cloneDeep(state);
+        for (const node of nodes) {
+          snapshot[node.data.id] = fn(node, snapshot);
+        }
         changed = !isEqual(state, snapshot);
         state = snapshot;
         snapshots.push(state);

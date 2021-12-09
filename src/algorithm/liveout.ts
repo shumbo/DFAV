@@ -56,22 +56,19 @@ export const liveout: Algorithm = (graph, nodes, helpers) => {
     liveout[node.data.id] = [];
   }
 
-  const snapshots = helpers.fixedPoint(liveout, (state) => {
-    for (const node of nodes) {
-      let tmp: string[] = [];
-      const successors = graph.successors(node.data);
-      for (const s of successors) {
-        tmp = union(
-          tmp,
-          union(
-            ueVar[s.data.id]!,
-            difference(state[s.data.id], varKill[s.data.id]!)
-          )
-        );
-      }
-      state[node.data.id] = tmp;
+  const snapshots = helpers.fixedPoint(liveout, (node, state) => {
+    let tmp: string[] = [];
+    const successors = graph.successors(node.data);
+    for (const s of successors) {
+      tmp = union(
+        tmp,
+        union(
+          ueVar[s.data.id]!,
+          difference(state[s.data.id], varKill[s.data.id]!)
+        )
+      );
     }
-    return state;
+    return tmp;
   });
 
   return snapshots.map((snapshot) => {
